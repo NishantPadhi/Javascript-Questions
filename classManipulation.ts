@@ -1,0 +1,70 @@
+/**
+ *
+ * Note: If you haven't completed the jQuery.css question, you should attempt that first.
+ *
+ * Before Element.classList and DOMTokenList were part of the browser standards, 
+ * it was a hassle to manipulate classes on a DOM element.
+ *
+ * jQuery is a library that simplifies DOM manipulation (among other things). 
+ * jQuery (using the $ alias function), provided convenient APIs to toggle, add, and 
+ * remove classes from elements via .toggleClass(), .addClass() and .removeClass().
+ */
+/**
+ * @param {string} className
+ * @return {Set<string>}
+ */
+function classNameTokenSet(className) {
+  return new Set(className.trim().split(/\s+/));
+}
+
+/**
+ * @param {string} selector
+ * @return {{toggleClass: Function, addClass: Function, removeClass: Function}}
+ */
+export default function $(selector) {
+  const element = document.querySelector(selector);
+
+  return {
+    /**
+     * @param {string} className
+     * @param {boolean} state
+     * @return {Object|void}
+     */
+    toggleClass: function (className, state) {
+      // No-op if there is no matching element.
+      if (element == null) {
+        return this;
+      }
+
+      const classes = classNameTokenSet(className);
+      const elementClasses = classNameTokenSet(element.className);
+
+      classes.forEach((cls) => {
+        const shouldRemove =
+          state === undefined ? elementClasses.has(cls) : !state;
+        shouldRemove
+          ? elementClasses.delete(cls) // Remove if state is not defined and element contains the class or state is false.
+          : elementClasses.add(cls);
+      });
+
+      element.className = Array.from(elementClasses).join(' ');
+      return this;
+    },
+    /**
+     * @param {string} className
+     * @return {Object}
+     */
+    addClass: function (className) {
+      this.toggleClass(className, true);
+      return this;
+    },
+    /**
+     * @param {string} className
+     * @return {Object}
+     */
+    removeClass: function (className) {
+      this.toggleClass(className, false);
+      return this;
+    },
+  };
+}
