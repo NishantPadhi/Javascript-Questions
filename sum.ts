@@ -11,3 +11,8 @@ export default function sum(valueA) {
     return valueB === undefined ? valueA : sum(valueA + valueB);
   };
 }
+
+// Examples
+sum(1)(); // 1
+sum(1)(2)(); // 3
+sum(1)(2)(-3)(); // 0
