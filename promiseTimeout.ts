@@ -17,3 +17,25 @@ Implement a promiseTimeout function that accepts a promise and a timeout duratio
 // console.log(response); // Data successfully fetched!
 
 // await promiseTimeout(fakeFetch(5000), 2000);
+
+/**
+ * @template T
+ * @param {Promise<T>} promise
+ * @param {number} duration
+ * @return {Promise<T>}
+ */
+export default function promiseTimeout(promise, duration) {
+  return new Promise((resolve, reject) => {
+    const timeoutId = setTimeout(() => {
+      reject('Promise timeout');
+    }, duration);
+
+    promise
+      .then(resolve)
+      .catch(reject)
+      .finally(() => {
+        clearTimeout(timeoutId);
+      });
+  });
+}
+
