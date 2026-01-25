@@ -11,3 +11,11 @@ value (*): The value to check.
 Returns
 (boolean): Returns true if value is empty, else false.
 */
+
+// Examples
+// isEmpty(null); // => true
+// isEmpty(true); // => true
+// isEmpty(1); // => true
+// isEmpty([1, 2, 3]); // => false
+// isEmpty({ a: 1 }); // => false
+
