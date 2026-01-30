@@ -24,5 +24,16 @@ import GlobalMap from './GlobalMap';
 const gbMap = GlobalMap.getInstance();
 console.log(gbMap.get('count')); // 42
 
-
 */
+
+const GlobalMap = (function () {
+  const _privateMap = new Map();
+
+  return {
+    getInstance: function () {
+      return _privateMap;
+    },
+  };
+})();
+
+export default GlobalMap;
