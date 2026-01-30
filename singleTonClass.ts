@@ -26,6 +26,7 @@ console.log(gbMap.get('count')); // 42
 
 */
 
+// Immediately Invoked Function Expression (IIFE) approach
 const GlobalMap = (function () {
   const _privateMap = new Map();
 
@@ -37,3 +38,12 @@ const GlobalMap = (function () {
 })();
 
 export default GlobalMap;
+
+/** Es6 modules approach */
+const globalMap = new Map();
+
+export default {
+  getInstance() {
+    return globalMap;
+  },
+};
