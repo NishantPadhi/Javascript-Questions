@@ -7,3 +7,22 @@ Preventing duplicate initialization: To ensure that only one instance of a class
 Caching: For implementing a caching mechanism where you want to maintain a single cache instance throughout the application.
 Implement the GlobalMap module in JavaScript using the Singleton pattern. The GlobalMap module exports an object that has a single getInstance() method which returns a Map object that can be used as a key/value store for global caching/memoization.
  */
+
+/**
+ * 
+ // fileA.js
+import GlobalMap from './GlobalMap';
+
+const gbMap = GlobalMap.getInstance();
+gbMap.set('count', 42);
+
+Somewhere else in another file, executed after the first:
+
+// fileB.js
+import GlobalMap from './GlobalMap';
+
+const gbMap = GlobalMap.getInstance();
+console.log(gbMap.get('count')); // 42
+
+
+*/
