@@ -13,3 +13,15 @@ The types of the fulfilled results do not match, reject with the string 'Unsuppo
 One of the promises fail, reject with the rejected promise's reason.
 
 */
+
+/**
+ *
+await promiseMerge(Promise.resolve(1), Promise.resolve(2)); // 3
+await promiseMerge(Promise.resolve('abc'), Promise.resolve('def')); // 'abcdef'
+await promiseMerge(Promise.resolve([1, 2, 3]), Promise.resolve([4, 5, 6])); // [1, 2, 3, 4, 5, 6]
+await promiseMerge(Promise.resolve({ foo: 1 }), Promise.resolve({ bar: 2 })); // { foo: 1, bar: 2}
+
+await promiseMerge(Promise.resolve(1), Promise.resolve([])); // Rejected with 'Unsupported data types'
+await promiseMerge(Promise.reject(1), Promise.resolve(2)); // Rejected with 1
+
+*/
