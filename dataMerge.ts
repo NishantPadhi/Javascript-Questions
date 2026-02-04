@@ -14,4 +14,16 @@ Combine all the equipment used, de-duplicating the values and sorting alphabetic
 The order of the results should always remain unchanged from the original set, and in the case of 
 merging sessions with the same users, the row should take the place of the earliest occurrence of that user. 
 The input objects should not be modified.
- */
+*/
+
+/**
+ * Examples
+mergeData(sessions);
+// [
+//   { user: 8, duration: 50, equipment: ['bench'] },
+//   { user: 7, duration: 450, equipment: ['bike', 'dumbbell', 'kettlebell'] },
+//   { user: 1, duration: 10, equipment: ['barbell'] },
+//   { user: 2, duration: 400, equipment: ['bike', 'treadmill'] },
+// ];
+
+*/
