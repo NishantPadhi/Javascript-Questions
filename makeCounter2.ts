@@ -7,3 +7,15 @@ increment(): increments the current value and returns it.
 decrement(): decrements the current value and returns it.
 reset(): resets the current value to the initial value.
 */
+
+/**
+ * 
+ *
+const counter = makeCounter();
+counter.get(); // 0
+counter.increment(); // 1
+counter.increment(); // 2
+counter.get(); // 2
+counter.reset(); // 0
+counter.decrement(); // -1
+*/
