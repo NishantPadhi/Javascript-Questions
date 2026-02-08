@@ -43,3 +43,18 @@ dropRightWhile([10, 11, 12, 4, 5], (value, _index, array) => value < array[1]);
 // Explanation: array[1] = 11. 5 < 11 (true, drop). 4 < 11 (true, drop). 12 < 11 (false, stop). Returns [10, 11, 12].
 
 */
+
+/**
+ * @param {Array} array - The array to iterate over.
+ * @param {Function} predicate - The function invoked per iteration.
+ * @return {Array} Returns the slice of `array`.
+ */
+export default function dropRightWhile(array, predicate) {
+  let index = array.length - 1;
+
+  while (index >= 0 && predicate(array[index], index, array)) {
+    index--;
+  }
+
+  return array.slice(0, index + 1);
+}
