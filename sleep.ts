@@ -23,3 +23,24 @@ greeting();
 // t = 2000: Bye.
 
 */
+
+async function greeting() {
+  console.log('Hello!');
+  await sleep(2000);
+  console.log('Bye.');
+}
+
+setInterval(() => {
+  console.log('Tick');
+}, 500);
+
+greeting();
+// t = 0: Hello!
+// t = 500: Tick
+// t = 1000: Tick
+// t = 1500: Tick
+// t = 2000: Tick
+// t = 2000: Bye.
+// t = 2500: Tick
+// t = 3000: Tick
+// ...
