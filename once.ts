@@ -21,3 +21,21 @@ i = 4;
 incrementByOnce(2); // i is still 4 as it is not modified. However, the function returns the result of the first invocation, which is 3.
 
 */
+
+/**
+ * @callback func
+ * @return {Function}
+ */
+export default function once(func) {
+  let ranOnce = false;
+  let value;
+
+  return function (...args) {
+    if (!ranOnce) {
+      value = func.apply(this, args);
+      ranOnce = true;
+    }
+
+    return value;
+  };
+}
