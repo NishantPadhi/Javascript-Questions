@@ -22,3 +22,22 @@ i = 4;
 incrementByAtMostThrice(2); // i is still 4 as it is not modified. The function still returns 10.
 
 */
+
+/**
+ * @callback func
+ * @param {number} n
+ * @return {Function}
+ */
+export default function limit(func, n) {
+  let count = 0;
+  let value;
+
+  return function (...args) {
+    if (count < n) {
+      value = func.apply(this, args);
+      count++;
+    }
+
+    return value;
+  };
+}
