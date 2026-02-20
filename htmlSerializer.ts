@@ -1,0 +1,4 @@
+/**
+ * Given an object which resembles a DOM tree, implement a function that serializes the object into a 
+ * formatted string with proper indentation (one tab (\t character) per nesting level) and one tag per line.
+*/
